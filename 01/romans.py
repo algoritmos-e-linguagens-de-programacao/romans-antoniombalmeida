@@ -15,5 +15,19 @@ def int_to_roman(num):
     return romans
     
 def roman_to_int(s):
-    # Implemente sua função aqui
-    pass
+    valores_romanos = {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
+
+    i = 0
+    total = 0
+
+    for roman in reversed(s):
+        valor_total = valores_romanos[roman]
+    
+        if valor_total >= i:
+            total += valor_total
+        else:
+            total -= valor_total
+
+        i = valor_total
+    
+    return total
